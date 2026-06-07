@@ -39,6 +39,13 @@ public class SecurityConfig {
 
                         .anyRequest()
                         .authenticated()
+                        .requestMatchers(
+                                "/",
+                                "/login",
+                                "/contact",
+                                "/download-resume",
+                                "/project/**"
+                        ).permitAll()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
