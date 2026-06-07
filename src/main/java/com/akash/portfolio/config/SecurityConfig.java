@@ -21,32 +21,27 @@ public class SecurityConfig {
                                 "/",
                                 "/login",
                                 "/contact",
-                                "/download-resume"
+                                "/download-resume",
+                                "/project/**",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**",
+                                "/uploads/**"
                         ).permitAll()
+
                         .requestMatchers(
                                 "/admin",
                                 "/projects",
                                 "/messages",
                                 "/add-project",
                                 "/edit-project/**",
-                                "/delete-project/**"
+                                "/delete-project/**",
+                                "/delete-message/**"
                         ).authenticated()
 
-                        .requestMatchers("/css/**",
-                                "/js/**",
-                                "/images/**")
-                        .permitAll()
-
-                        .anyRequest()
-                        .authenticated()
-                        .requestMatchers(
-                                "/",
-                                "/login",
-                                "/contact",
-                                "/download-resume",
-                                "/project/**"
-                        ).permitAll()
+                        .anyRequest().authenticated()
                 )
+
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/admin", true)

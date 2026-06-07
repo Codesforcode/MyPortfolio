@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @AllArgsConstructor
 public class AdminController {
-    private final ContactRepository repository;
+
     private final ProjectRepository projectRepository;
     private final ContactRepository contactRepository;
     @GetMapping("/messages")
     public String getMessages(Model model){
-        model.addAttribute("messages",repository.findAll());
+        model.addAttribute("messages",contactRepository.findAll());
         return "messages";
     }
     @GetMapping("/admin")

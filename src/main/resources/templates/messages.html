@@ -20,6 +20,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Message</th>
+            <th>Action</th>
         </tr>
         </thead>
 
@@ -31,6 +32,16 @@
             <td th:text="${msg.name}"></td>
             <td th:text="${msg.email}"></td>
             <td th:text="${msg.message}"></td>
+
+            <td>
+                <a th:href="@{/delete-message/{id}(id=${msg.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Delete this message?')">
+
+                    Delete
+
+                </a>
+            </td>
 
         </tr>
 
